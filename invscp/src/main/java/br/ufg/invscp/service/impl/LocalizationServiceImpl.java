@@ -1,6 +1,7 @@
 package br.ufg.invscp.service.impl;
 
 import java.util.List;
+import static java.util.Optional.ofNullable;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -36,11 +37,11 @@ public class LocalizationServiceImpl implements LocalizationService {
 	}
 	
 	public Localization findLocalization(Long localizationId) {
-		return localizationRepository.findById(localizationId)
+		return ofNullable(localizationRepository.findOne(localizationId))
 				.orElseThrow(() -> new EntityNotFoundException("localizationNotFound"));
 	}
 	
 	public void delete(Long localizationId) {
-		localizationRepository.deleteById(localizationId);
+		localizationRepository.delete(localizationId);
 	}
 }
