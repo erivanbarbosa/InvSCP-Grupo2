@@ -20,8 +20,8 @@ public class Localization extends EntidadeAbstrata {
 	@Column(name = "address")
 	private String address;
 	
-	@OneToMany(mappedBy="predio")
-	private List<Predio> category;
+	@OneToMany(mappedBy="localizacao")
+	private List<Predio> predios;
 
 	public Localization(String name, String address) {
 		this.name = name;
@@ -44,14 +44,11 @@ public class Localization extends EntidadeAbstrata {
 		this.address = address;
 	}
 
-	public List<Predio> getCategory() {
-		return category;
+	public List<Predio> getPredios() {
+		return predios;
 	}
 
-	public void setCategory(List<Predio> category) {
-		this.category = category;
+	public void setPredios(List<Predio> predios) {
+		this.predios = predios;
 	}
-	
-	
-	
 }

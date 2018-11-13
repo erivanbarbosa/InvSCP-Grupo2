@@ -10,6 +10,6 @@ import javax.persistence.Table;
 public class Predio extends EntidadeAbstrata {
 
 	@ManyToOne
-	@JoinColumn(name="id_localizacao", referencedColumnName="id_localizacao")
+	@JoinColumn(name="id_localizacao", referencedColumnName="id")
 	private Localization localizacao;
 }
