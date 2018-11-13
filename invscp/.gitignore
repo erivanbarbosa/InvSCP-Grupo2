@@ -1,0 +1,9 @@
+/.classpath
+*.class
+/target
+.settings
+.project
+\.DS_Store
+
+invscp/\.idea/
+
