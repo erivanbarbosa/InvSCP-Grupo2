@@ -20,12 +20,8 @@ import javax.persistence.Transient;
  */
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Usuario extends EntidadeAbstrata{
 
-
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
 
   @Column(name = "username")
   private String username;

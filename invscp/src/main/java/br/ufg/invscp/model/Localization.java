@@ -1,37 +1,31 @@
 package br.ufg.invscp.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "localization")
-public class Localization {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+public class Localization extends EntidadeAbstrata {
 
 	@Column(name = "name")
 	private String name;
 	
 	@Column(name = "address")
 	private String address;
+	
+	@OneToMany(mappedBy="predio")
+	private List<Predio> category;
 
 	public Localization(String name, String address) {
 		this.name = name;
 		this.address = address;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -49,6 +43,15 @@ public class Localization {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public List<Predio> getCategory() {
+		return category;
+	}
+
+	public void setCategory(List<Predio> category) {
+		this.category = category;
+	}
+	
 	
 	
 }

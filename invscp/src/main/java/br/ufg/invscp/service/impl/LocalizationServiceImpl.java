@@ -20,11 +20,13 @@ public class LocalizationServiceImpl implements LocalizationService {
 	@Autowired
 	private LocalizationRepository localizationRepository;
   
+	@Override
 	public void save(LocalizationDTO dto ) {
 		Localization localization = new Localization(dto.getName(), dto.getAddress());
 		localizationRepository.save(localization);
 	}
 	
+	@Override
 	public void update(Long localizationId, LocalizationDTO dto ) {
 		Localization localization = findLocalization(localizationId);
 		localization.setName(dto.getName());
@@ -32,15 +34,18 @@ public class LocalizationServiceImpl implements LocalizationService {
 		localizationRepository.save(localization);
 	}
 	
+	@Override
 	public List<Localization> findAllLocalizations() {
 		return localizationRepository.findAll();
 	}
 	
+	@Override
 	public Localization findLocalization(Long localizationId) {
 		return ofNullable(localizationRepository.findOne(localizationId))
 				.orElseThrow(() -> new EntityNotFoundException("localizationNotFound"));
 	}
 	
+	@Override
 	public void delete(Long localizationId) {
 		localizationRepository.delete(localizationId);
 	}
