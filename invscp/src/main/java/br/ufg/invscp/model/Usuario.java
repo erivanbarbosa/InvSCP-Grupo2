@@ -19,8 +19,8 @@ import javax.persistence.Transient;
  * @since 1.0
  */
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "usuario")
+public class Usuario {
 
 
   @Id
@@ -41,14 +41,14 @@ public class User {
 
 
   @ManyToMany(cascade = { CascadeType.PERSIST })
-  @JoinTable(schema = "app", name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+  @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
   private Set<Role> roles;
 
-  public User() {
+  public Usuario() {
     // TODO Auto-generated constructor stub
   }
 
-  public User(String username, String password, String email, Set<Role> roles) {
+  public Usuario(String username, String password, String email, Set<Role> roles) {
     super();
     this.username = username;
     this.password = password;
@@ -56,7 +56,7 @@ public class User {
     this.roles = roles;
   }
 
-  public User(String username, String password, String email, Role role) {
+  public Usuario(String username, String password, String email, Role role) {
     super();
     this.username = username;
     this.password = password;

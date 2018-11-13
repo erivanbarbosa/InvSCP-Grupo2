@@ -1,8 +1,8 @@
 package br.ufg.invscp.service;
 
 import br.ufg.invscp.model.Role;
-import br.ufg.invscp.model.User;
-import br.ufg.invscp.repository.UserRepository;
+import br.ufg.invscp.model.Usuario;
+import br.ufg.invscp.repository.UsuarioRepository;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +22,12 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
   @Autowired
-  private UserRepository userRepository;
+  private UsuarioRepository userRepository;
 
   @Override
   @Transactional(readOnly = true)
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    User user = userRepository.findByUsername(username);
+    Usuario user = userRepository.findByUsername(username);
 
     Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
     for (Role role : user.getRoles()) {
