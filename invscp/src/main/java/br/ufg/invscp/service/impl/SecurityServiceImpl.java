@@ -1,5 +1,6 @@
 package br.ufg.invscp.service.impl;
 
+import br.ufg.invscp.service.SecurityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
-
-import br.ufg.invscp.service.SecurityService;
 
 /**
  * @author Iago Bruno
