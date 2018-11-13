@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html layout:decorator="default">
+<body>
+	<section layout:fragment="content">
+
+		<form method="post" name="comment_form" id="comment_form"
+			th:action="@{/localizacao/create}" role="form" th:object="${localizacao}">
+			<div class="form-group">
+				<label for="name">Nome</label> <input type="text"
+					class="form-control" th:field="*{name}" />
+			</div>
+			<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+		</form>
+	</section>
+</body>
+</html>

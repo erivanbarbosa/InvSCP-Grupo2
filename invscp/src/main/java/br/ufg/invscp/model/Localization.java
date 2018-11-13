@@ -23,6 +23,11 @@ public class Localization extends EntidadeAbstrata {
 	@OneToMany(mappedBy="localizacao")
 	private List<Predio> predios;
 
+	
+	public Localization() {
+		super();
+	}
+
 	public Localization(String name, String address) {
 		this.name = name;
 		this.address = address;
@@ -51,4 +56,11 @@ public class Localization extends EntidadeAbstrata {
 	public void setPredios(List<Predio> predios) {
 		this.predios = predios;
 	}
+
+	@Override
+	public String toString() {
+		return "Localization [name=" + name + "]";
+	}
+	
+	
 }
