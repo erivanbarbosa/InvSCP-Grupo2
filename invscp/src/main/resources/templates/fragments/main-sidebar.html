@@ -1,7 +1,7 @@
 <!-- sidebar: style can be found in sidebar.less -->
 <section class="sidebar">
 	<!-- Sidebar user panel -->
-	<div class="user-panel">
+	<!-- <div class="user-panel">
 		<div class="pull-left image">
 			<img src="dist/img/user2-160x160.jpg" class="img-circle" />
 		</div>
@@ -9,12 +9,21 @@
 			<p sec:authentication="name"></p>
 			<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 		</div>
-	</div>
+	</div>  -->
 
 	<!-- sidebar menu: : style can be found in sidebar.less -->
 	<ul class="sidebar-menu">
-		<li class="header">Menu Principal</li>
+		<!-- <li class="header">Menu Principal</li>  -->
+		
+		<li sec:authorize="hasAnyAuthority('ADMIN')"><a
+			href="/localizacao/"> <i class="fa fa-map-marker"></i> <span>Localizações</span>
+		</a></li>
+		
+		<li sec:authorize="hasAnyAuthority('ADMIN')"><a
+			href="/predio/"> <i class="fa fa-building"></i> <span>Predios</span>
+		</a></li>
 
+<!--  
 		<li sec:authorize="hasAnyAuthority('ADMIN')"><a
 			href="/admin/users"> <i class="fa fa-users"></i> <span>Usuários</span>
 		</a></li>
@@ -32,7 +41,7 @@
 
 		<li sec:authorize="hasAnyAuthority('ADMIN','PROF')"><a
 			href="/prof/test"> <i class="fa fa-bar-chart"></i> <span>Avaliações</span>
-		</a></li>
+		</a></li> -->
 
 	</ul>
 </section>
