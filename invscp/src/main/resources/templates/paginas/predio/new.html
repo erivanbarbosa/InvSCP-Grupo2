@@ -3,6 +3,8 @@
 <body>
 	<section layout:fragment="content">
 
+		<h1>Novo Predio</h1>
+
 		<form method="post" th:action="@{/predio/create}" role="form"
 			th:object="${predio}">
 			<div class="form-group">
@@ -15,11 +17,11 @@
 					</select>
 				</div>
 			</div>
-			
-			<div class="col-sm-12 float-right">
-				<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+
+			<div class="col-sm-12">
+				<button type="submit" id="submit" class="btn btn-primary pull-right">Salvar</button>
 			</div>
-			
+
 		</form>
 	</section>
 </body>
