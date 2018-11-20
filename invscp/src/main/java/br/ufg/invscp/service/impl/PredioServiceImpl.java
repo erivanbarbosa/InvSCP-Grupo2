@@ -43,6 +43,7 @@ public class PredioServiceImpl implements PredioService {
 		predioRepository.save(predio);
 	}
 	
+	@Override
 	public List<Predio> findAll() {
 		return predioRepository.findAll();
 	}

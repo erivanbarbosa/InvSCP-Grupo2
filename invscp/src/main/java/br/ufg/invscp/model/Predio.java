@@ -24,6 +24,10 @@ public class Predio extends EntidadeAbstrata {
 		this.salas = salas;
 	}
 
+	public Predio() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Localization getLocalizacao() {
 		return localizacao;
 	}

@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "sala")
-public class Sala {
+public class Sala extends EntidadeAbstrata {
 	private String numero;
 	private int tipo;
 	

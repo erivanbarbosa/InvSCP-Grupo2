@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.ufg.invscp.model.Localization;
 import br.ufg.invscp.model.dto.LocalizationDTO;
+import br.ufg.invscp.model.dto.PredioDTO;
 
 public interface LocalizationService {
 
@@ -16,5 +17,4 @@ public interface LocalizationService {
 	Localization findLocalization(Long localizationId);
 
 	void delete(Long localizationId);
-
 }
