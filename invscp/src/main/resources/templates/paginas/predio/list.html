@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html layout:decorator="default">
+<body>
+	<section layout:fragment="content">
+
+		<a class="btn btn-primary" href="/predio/new">Adicionar Novo Predio</a>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Localização</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-th-each="predio : ${predios}">
+					<td class="message" data-th-text="${predio.localizacao.name}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>
