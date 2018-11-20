@@ -22,7 +22,7 @@ public class LocalizacaoController {
 	@PostMapping("/create")
 	public ModelAndView save(LocalizationDTO  location, Model model) {
 		localizationService.save(location);
-		return find(model);
+		return findAll(model);
 	}
 	
 	@RequestMapping("/new")
@@ -32,7 +32,7 @@ public class LocalizacaoController {
 	}
 	
 	@RequestMapping("/")
-	public ModelAndView find(Model model ) {
+	public ModelAndView findAll(Model model ) {
 		List<Localization> localizations = localizationService.findAllLocalizations();
 		model.addAttribute("localizacoes", localizations);
 		return new ModelAndView("paginas/localizacao/index");
