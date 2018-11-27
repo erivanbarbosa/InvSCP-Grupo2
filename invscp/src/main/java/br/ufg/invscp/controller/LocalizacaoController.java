@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,14 +34,21 @@ public class LocalizacaoController {
 	}
 
 
-	// Não sei se funciona, nem edit nem delete.
 	@RequestMapping("/edit/{id}")
 	public ModelAndView editLocalizacao(@PathVariable Long id, Model model) {
 		Localization localization = localizationService.findLocalization(id);
 		System.out.println(localization);
-		model.addAttribute("localization", localization);
+		model.addAttribute("localizacao", localization);
 		return new ModelAndView("paginas/localizacao/edit");
 	}
+	
+	@PostMapping("/update/{id}")
+	public ModelAndView update(@PathVariable Long id, LocalizationDTO  location, Model model) {
+		localizationService.update(id, location);
+		return findAll(model);
+	}
+	
+	
 	
 	@RequestMapping("/")
 	public ModelAndView findAll(Model model ) {
