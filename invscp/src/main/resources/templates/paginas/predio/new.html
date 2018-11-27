@@ -1,28 +1,51 @@
 <!DOCTYPE html>
 <html layout:decorator="default">
+
 <body>
 	<section layout:fragment="content">
 
-		<h1>Novo Predio</h1>
+		<!--- col 12 -->
+		<div class="col-md-12 col-sm-12 col-xs-12 content">
 
-		<form method="post" th:action="@{/predio/create}" role="form"
-			th:object="${predio}">
-			<div class="form-group">
+			<!-- Title -->
+			<div class="x_title">
+				<h2>Novo Predio</h2>
+				<!--- clear -->
+				<div class="clearfix"></div>
+				<!--- / clear -->
+			</div>
 
-				<div class="col-sm-4">
-					<select class="form-control" th:field="${predio.localizacaoId}">
-						<option value="0"></option>
-						<option th:each="localizacao : ${localizacoes}"
-							th:value="${localizacao.id}" th:text="${localizacao.name}"></option>
-					</select>
+			<div class="x_content">
+				<div class="col-sm-12 col-xs-12">
+					<form method="post" th:action="@{/predio/create}" role="form" th:object="${predio}">
+
+						<!-- Partner's Name -->
+						<div class="col-sm-4 col-xs-12">
+							<div class="form-group">
+								<label>Localização</label>
+								<span class="required">*</span>
+								<select class="form-control" th:field="${predio.localizacaoId}">
+									<option value="0">Selecione</option>
+									<option th:each="localizacao : ${localizacoes}" th:value="${localizacao.id}" th:text="${localizacao.name}"></option>
+								</select>
+							</div>
+						</div>
+
+
+						<div class="col-xs-12">
+							<div class="ln_solid"></div>
+							<div class="pull-right" style="padding: 0;">
+							<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+							<button type="submit" id="submit" class="btn btn-default">
+								<a href="/predio/">Cancelar</a>
+							</button>
+						</div>
+						</div>
+					</form>
 				</div>
 			</div>
-
-			<div class="col-sm-12">
-				<button type="submit" id="submit" class="btn btn-primary pull-right">Salvar</button>
-			</div>
-
-		</form>
+		</div>
 	</section>
 </body>
+
 </html>

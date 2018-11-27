@@ -25,9 +25,9 @@ public class PredioServiceImpl implements PredioService {
 	
 	public void save(PredioDTO dto) {
 		Localization localizacao = localizationService.findLocalization(dto.getLocalizacaoId());
-		List<Sala> salas = findSalas(dto.getSalasId());
 		
-		Predio predio = new Predio(localizacao, salas);
+		Predio predio = new Predio();
+		predio.setLocalizacao(localizacao);
 		
 		predioRepository.save(predio);
 	}
