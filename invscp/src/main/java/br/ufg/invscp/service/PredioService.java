@@ -11,4 +11,10 @@ public interface PredioService {
 
 	void save(PredioDTO predio);
 
+	Predio find(Long id);
+
+	void delete(Long id);
+
+	void update(Long id, Predio predioUpdate);
+
 }

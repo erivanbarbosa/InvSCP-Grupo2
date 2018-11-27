@@ -8,16 +8,16 @@
 		<table class="table table-striped" id="disciplines_list">
 			<thead>
 				<tr>
+					<th>ID</th>
 					<th>Localização</th>
+					<th>Ações</th>
 				</tr>
 			</thead>
 			<tbody>
 
 				<tr data-th-each="predio : ${predios}">
 					<td style="width:10%" data-th-text="${predio.id}"></td>
-					<td style="width:40%" class="message" data-th-text="${predio.localizacao.name}"></td>
-					<td style="width:40%" class="message" data-th-text="${predio.localizacao.name}">
-						<span th:each="sala : predio.salas" th:text="${sala.numero}"></span> </td>
+					<td style="width:80%" class="message" data-th-text="${predio.localizacao.name}"></td>
 					<td style="width:10%">
 						<a class="btn btn-primary" th:href="@{/predio/edit/{id}(id=${predio.id})}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash" aria-hidden="true"></i></button>				

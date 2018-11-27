@@ -32,13 +32,11 @@ public class PredioServiceImpl implements PredioService {
 		predioRepository.save(predio);
 	}
 	
-	public void update(Long id, PredioDTO dto) {
+	@Override
+	public void update(Long id, Predio predioUpdate) {
 		Predio predio = predioRepository.findOne(id);
-		Localization localizacao = localizationService.findLocalization(dto.getLocalizacaoId());
-		List<Sala> salas = findSalas(dto.getSalasId());
-		
+		Localization localizacao = localizationService.findLocalization(predioUpdate.getLocalizacao().getId());
 		predio.setLocalizacao(localizacao);
-		predio.setSalas(salas);
 		
 		predioRepository.save(predio);
 	}
@@ -48,11 +46,13 @@ public class PredioServiceImpl implements PredioService {
 		return predioRepository.findAll();
 	}
 	
+	@Override
 	public Predio find(Long id ) {
 		return predioRepository.findOne(id);
 	}
 	
-	public void delte(Long id) {
+	@Override
+	public void delete(Long id) {
 		predioRepository.delete(id);
 	}
 
