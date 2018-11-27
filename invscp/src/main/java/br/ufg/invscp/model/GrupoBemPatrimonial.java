@@ -10,7 +10,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "grupo_bem_patrimonial")
-public class GrupoBemPatrimonial {
+public class GrupoBemPatrimonial extends EntidadeAbstrata {
 
   private String nome;
 

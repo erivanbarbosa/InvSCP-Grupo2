@@ -48,6 +48,12 @@ public class LocalizacaoController {
 		return findAll(model);
 	}
 	
+	@RequestMapping("/delete/{id}")
+	public ModelAndView delete(@PathVariable Long id, Model model) {
+		localizationService.delete(id);
+		return findAll(model);
+	}
+	
 	
 	
 	@RequestMapping("/")

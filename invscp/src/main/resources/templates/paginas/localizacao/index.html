@@ -3,7 +3,7 @@
 <body>
 	<section layout:fragment="content">
 
-		<a class="btn btn-primary" href="/localizacao/new">Adicionar Nova Disciplina</a>
+		<a class="btn btn-primary" href="/localizacao/new">Adicionar Nova Localização</a>
 
 		<table class="table table-striped" id="disciplines_list">
 			<thead>
@@ -15,11 +15,12 @@
 			</thead>
 			<tbody>
 				<tr data-th-each="localizacao : ${localizacoes}">
-					<td data-th-text="${localizacao.id}"></td>
-					<td class="message" data-th-text="${localizacao.address}"></td>
-					<td class="message" data-th-text="${localizacao.name}"></td>
-					<td>
-						<a class="btn btn-primary" th:href="@{/localizacao/edit/{id}(id=${localizacao.id})}">Editar Localizacao</a>
+					<td style="width:10%" data-th-text="${localizacao.id}"></td>
+					<td style="width:40%" class="message" data-th-text="${localizacao.address}"></td>
+					<td style="width:40%" class="message" data-th-text="${localizacao.name}"></td>
+					<td style="width:10%">
+						<a class="btn btn-primary" th:href="@{/localizacao/edit/{id}(id=${localizacao.id})}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+						<a class="btn btn-danger" th:href="@{/localizacao/delete/{id}(id=${localizacao.id})}"><i class="fa fa-trash" aria-hidden="true"></i></a>
 					</td>
 				</tr>
 			</tbody>
