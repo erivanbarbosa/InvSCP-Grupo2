@@ -20,8 +20,32 @@
 					<td style="width:40%" class="message" data-th-text="${localizacao.name}"></td>
 					<td style="width:10%">
 						<a class="btn btn-primary" th:href="@{/localizacao/edit/{id}(id=${localizacao.id})}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-						<a class="btn btn-danger" th:href="@{/localizacao/delete/{id}(id=${localizacao.id})}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash" aria-hidden="true"></i></button>				
 					</td>
+					
+	
+					
+						  <div class="modal fade" id="myModal" role="dialog">
+						    <div class="modal-dialog">
+						      <!-- Modal content-->
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						          <h4 class="modal-title">Confirmar Exclusão</h4>
+						        </div>
+						        <div class="modal-body">
+						          <p>Deseja realmente excluir este registro?</p>
+						          
+						        </div>
+						        <div class="modal-footer">
+						        <a class="btn btn-danger" th:href="@{/localizacao/delete/{id}(id=${localizacao.id})}"><i class="fa fa-pencil" aria-hidden="true"> Excluir</i></a>
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div>
+						      
+						    </div>
+						  </div>
+					
 				</tr>
 			</tbody>
 		</table>
