@@ -15,5 +15,5 @@ public class GrupoBemPatrimonial extends EntidadeAbstrata {
   private String nome;
 
   private BigDecimal percentual;
-  
+
 }
