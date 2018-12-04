@@ -16,8 +16,8 @@ public class Sala extends EntidadeAbstrata {
 	private String numero;
 	private int tipo;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "predio_id")
+	@ManyToOne
+	@JoinColumn(name = "id_sala", referencedColumnName = "id")
 	private Predio predio;
 	
 	@ManyToOne
@@ -26,6 +26,7 @@ public class Sala extends EntidadeAbstrata {
 	
 	@OneToMany(mappedBy = "bemPatrimonial")
 	private List<BemPatrimonial> bensPatrimoniais;
+	
 	
 	public Sala(String numero, int tipo, Predio predio) {
 		this.numero = numero;
