@@ -2,13 +2,17 @@ package br.ufg.invscp.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import br.ufg.invscp.model.enuns.EnumMotivoBaixa;
 import br.ufg.invscp.model.enuns.EnumSituacaoMovimentacao;
 
-public class Movimentacao {
+@Entity
+@Table(name = "movimentacao")
+public class Movimentacao extends EntidadeAbstrata{
 	private EnumSituacaoMovimentacao situacao;
 	private Date dataCancelamento;
 	private EnumMotivoBaixa motivoBaixa;

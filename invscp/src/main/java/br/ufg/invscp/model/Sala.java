@@ -24,7 +24,7 @@ public class Sala extends EntidadeAbstrata {
 	@JoinColumn(name = "id_departamento", referencedColumnName = "id")
 	private Departamento departamento;
 	
-	@OneToMany(mappedBy = "bemPatrimonial")
+	@OneToMany(mappedBy = "sala")
 	private List<BemPatrimonial> bensPatrimoniais;
 	
 	
