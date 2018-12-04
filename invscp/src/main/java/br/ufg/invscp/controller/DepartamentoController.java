@@ -75,4 +75,10 @@ public class DepartamentoController {
 		model.addAttribute("departamentos", departamentos);
 		return new ModelAndView("paginas/departamento/departamento-list");
 	}
+	
+	@RequestMapping("/delete/{id}")
+	public ModelAndView delete(@PathVariable Long id, Model model) {
+		departamentoService.delete(id);
+		return findAll(model);
+	}
 }

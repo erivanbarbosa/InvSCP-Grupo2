@@ -62,5 +62,17 @@ public class SalaServiceImpl implements SalaService{
 	public Sala find(Long salaId) {
 		return salaRepository.findOne(salaId);
 	}
+
+	@Override
+	public SalaDTO findDTO(Long id) {
+		Sala sala = find(id);
+		SalaDTO dto = new SalaDTO();
+		dto.setId(sala.getId());
+		dto.setNumero(sala.getNumero());
+		dto.setTipo(sala.getTipo());
+		dto.setDepartamentoId(sala.getDepartamento().getId());
+		dto.setPredioId(sala.getPredio().getId());
+		return dto;
+	}
 	
 }

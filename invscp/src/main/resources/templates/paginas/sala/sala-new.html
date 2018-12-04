@@ -56,7 +56,7 @@
 								<span class="required">*</span>
 								<select class="form-control" th:field="*{departamentoId}">
 									<option value="0">Selecione</option>
-									<option th:each="departamento : ${departamentos}" th:value="${departamento.id}" th:text="${departamento.name}"></option>
+									<option th:each="departamento : ${departamentos}" th:value="${departamento.id}" th:text="${departamento.nome}"></option>
 								</select>
 							</div>
 						</div>

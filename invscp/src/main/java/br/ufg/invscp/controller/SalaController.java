@@ -52,7 +52,7 @@ public class SalaController {
 	
 	@RequestMapping("/edit/{id}")
 	public ModelAndView editPredio(@PathVariable Long id, Model model) {
-		Sala sala = salaService.find(id);
+		SalaDTO sala = salaService.findDTO(id);
 		model.addAttribute("sala", sala);
 		model.addAttribute("predios", predioService.findAll());
 		model.addAttribute("departamentos", departamentoService.findAll());
@@ -68,7 +68,13 @@ public class SalaController {
 	@RequestMapping("/")
 	public ModelAndView findAll(Model model ) {
 		List<Sala> salas = salaService.findAll();
-		model.addAttribute("predios", salas);
+		model.addAttribute("salas", salas);
 		return new ModelAndView("paginas/sala/sala-list");
+	}
+	
+	@RequestMapping("/delete/{id}")
+	public ModelAndView delete(@PathVariable Long id, Model model) {
+		salaService.delete(id);
+		return findAll(model);
 	}
 }

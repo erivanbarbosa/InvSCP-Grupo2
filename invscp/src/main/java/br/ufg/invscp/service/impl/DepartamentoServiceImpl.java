@@ -60,7 +60,7 @@ public class DepartamentoServiceImpl implements DepartamentoService{
 		DepartamentoDTO dto = new DepartamentoDTO();
 		dto.setId(departamento.getId());
 		dto.setNome(departamento.getNome());
-		dto.setChefeId(dto.getChefeId());
+		dto.setChefeId(departamento.getChefe().getId());
 		return dto;
 	}
 	
