@@ -2,6 +2,9 @@ package br.ufg.invscp.model;
 
 import java.util.Date;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import br.ufg.invscp.model.enuns.EnumMotivoBaixa;
 import br.ufg.invscp.model.enuns.EnumSituacaoMovimentacao;
 
@@ -11,6 +14,11 @@ public class Movimentacao {
 	private EnumMotivoBaixa motivoBaixa;
 	private Origem origem;
 	private Destino destino;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_movimentacao", referencedColumnName = "id")
+	private Localization localizacao;
+	
 	private BemPatrimonial bemPatrimonial;
 
 	public EnumSituacaoMovimentacao getSituacao() {

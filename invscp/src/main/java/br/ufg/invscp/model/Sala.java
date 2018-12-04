@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -19,10 +20,11 @@ public class Sala extends EntidadeAbstrata {
     @JoinColumn(name = "predio_id")
 	private Predio predio;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "predio_id")
+	@ManyToOne
+	@JoinColumn(name = "id_departamento", referencedColumnName = "id")
 	private Departamento departamento;
 	
+	@OneToMany(mappedBy = "bemPatrimonial")
 	private List<BemPatrimonial> bensPatrimoniais;
 	
 	public Sala(String numero, int tipo, Predio predio) {
