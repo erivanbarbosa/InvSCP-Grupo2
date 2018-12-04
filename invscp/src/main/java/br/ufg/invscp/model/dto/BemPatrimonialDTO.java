@@ -1,7 +1,7 @@
 package br.ufg.invscp.model.dto;
 
-import br.ufg.invscp.model.enumerator.StatusBemPatrimonialEnum;
-import br.ufg.invscp.model.enumerator.TipoBaixaEnum;
+import br.ufg.invscp.model.enuns.StatusBemPatrimonialEnum;
+import br.ufg.invscp.model.enuns.TipoBaixaEnum;
 
 /**
  * @author Iago Bruno

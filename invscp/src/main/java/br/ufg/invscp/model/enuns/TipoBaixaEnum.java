@@ -1,4 +1,4 @@
-package br.ufg.invscp.model.enumerator;
+package br.ufg.invscp.model.enuns;
 
 /**
  * @author Iago Bruno

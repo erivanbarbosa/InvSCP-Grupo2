@@ -3,7 +3,7 @@
 <body>
 	<section layout:fragment="content">
 
-		<a class="btn btn-primary" href="/localizacao/new">Adicionar Nova Disciplina</a>
+		<a class="btn btn-primary" href="/bem/new">Adicionar Novo Bem Patrimonial</a>
 
 		<table class="table table-striped" id="list_bens">
 			<thead>
@@ -16,7 +16,7 @@
 			<tbody>
 				<tr data-th-each="bem : ${bens}">
 					<td data-th-text="${bem.id}"></td>
-					<td class="message" data-th-text="${bem.codigo}"></td>
+					<td class="message" data-th-text="${bem.numeroTombamento}"></td>
 					<td class="message" data-th-text="${bem.nome}"></td>
 					<td>
 						<a class="btn btn-primary" th:href="@{/bem/edit/{id}(id=${bem.id})}">Editar Bem Patrimonial</a>

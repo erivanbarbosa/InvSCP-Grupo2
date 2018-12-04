@@ -1,6 +1,6 @@
 package br.ufg.invscp.model;
 
-import br.ufg.invscp.model.enumerator.PeriodoDepreciacaoEnum;
+import br.ufg.invscp.model.enuns.PeriodoDepreciacaoEnum;
 import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.Table;
