@@ -18,8 +18,9 @@
 					<td data-th-text="${bem.id}"></td>
 					<td class="message" data-th-text="${bem.numeroTombamento}"></td>
 					<td class="message" data-th-text="${bem.nome}"></td>
-					<td style="width:10%">
+					<td style="width:20%">
 						<a class="btn btn-primary" th:href="@{/bem/edit/{id}(id=${bem.id})}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+						<a class="btn btn-primary" th:href="@{/bem/baixa/{id}(id=${bem.id})}"><i class="fa fa-ban" aria-hidden="true"></i></a>
 						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash" aria-hidden="true"></i></button>
 
 

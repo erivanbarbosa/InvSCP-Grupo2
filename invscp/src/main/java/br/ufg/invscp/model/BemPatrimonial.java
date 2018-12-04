@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -23,6 +25,7 @@ import javax.persistence.Table;
 public class BemPatrimonial extends EntidadeAbstrata {
 
   @Column
+  @Enumerated(EnumType.STRING)
   private StatusBemPatrimonialEnum status;
 
   @Column

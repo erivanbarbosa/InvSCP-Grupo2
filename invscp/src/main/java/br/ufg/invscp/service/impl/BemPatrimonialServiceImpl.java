@@ -45,7 +45,7 @@ public class BemPatrimonialServiceImpl implements BemPatrimonialService {
 
   @Override
   public List<BemPatrimonial> findAll() {
-    return bemPatrimonialRepository.findAll();
+    return bemPatrimonialRepository.findAllActives();
   }
 
   @Override

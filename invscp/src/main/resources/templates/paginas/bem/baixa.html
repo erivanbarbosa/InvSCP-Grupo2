@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html layout:decorator="default">
+<body>
+<section layout:fragment="content">
+
+  <form method="post" name="comment_form" id="comment_form"
+        th:action="@{/bem/baixar/{id}(id=${bem.id})}" role="form" th:object="${bem}">
+
+    <div class="form-group">
+      <label>Motivo</label>
+      <select class="form-control" th:field="${bem.motivo}">
+        <option value="0">Selecione</option>
+        <option value="INSERVIVEL">Inservivel</option>
+        <option value="AVARIADO">Avariado</option>
+        <option value="VENDIDO">Vendido</option>
+        <option value="EXTRAVIADO">Extraviado</option>
+        <option value="LEILOADO">Leiloado</option>
+        <option value="FURTO_ROUBO">Furo ou Roubo</option>
+
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Data de Aquisição</label>
+      <input type="date" class="form-control" th:field="${bem.data}"/>
+    </div>
+    <button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+  </form>
+
+</section>
+</body>
+</html>
