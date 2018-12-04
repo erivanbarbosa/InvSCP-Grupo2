@@ -1,10 +1,16 @@
 package br.ufg.invscp.model;
 
 import br.ufg.invscp.model.enumerator.StatusBemPatrimonialEnum;
+
 import br.ufg.invscp.model.enumerator.TipoBaixaEnum;
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -15,57 +21,126 @@ import javax.persistence.Table;
 @Table(name = "bem_patrimonial")
 public class BemPatrimonial extends EntidadeAbstrata {
 
-  @Column
-  private String codigo;
+	@Column
+	private StatusBemPatrimonialEnum status;
 
-  private String nome;
+	@Column
+	private TipoBaixaEnum tipoBaixaEnum;
+	
+	@ManyToOne
+	private GrupoBemPatrimonial grupo;
 
-  @Column
-  private StatusBemPatrimonialEnum status;
+	@Column(name = "numero_tombamento")
+	private Long numeroTombamento;
+	
+	@Column(name = "nome")
+	private String nome;
+	
+	@Column(name = "descricao")
+	private String descricao;
+	
+	@Column(name = "valor")
+	private Double valor;
+	
+	@Column(name = "marca")
+	private String marca;
+	
+	@Column(name = "data_aquisicao")
+	private Date dataAquisicao;
+	
+	@Column(name = "sala")
+	@ManyToOne
+	@JoinColumn(name = "id_sala", referencedColumnName = "id")
+	private Sala sala;
+	
+	@OneToMany(mappedBy="bemPatrimonial")
+	private List<Movimentacao> movimentacoes;
+	
+	public StatusBemPatrimonialEnum getStatus() {
+		return status;
+	}
 
-  private TipoBaixaEnum tipoBaixa;
+	public void setStatus(StatusBemPatrimonialEnum status) {
+		this.status = status;
+	}
 
-  @ManyToOne
-  private GrupoBemPatrimonial grupo;
+	public GrupoBemPatrimonial getGrupo() {
+		return grupo;
+	}
 
+	public void setGrupo(GrupoBemPatrimonial grupo) {
+		this.grupo = grupo;
+	}
 
-  public String getCodigo() {
-    return codigo;
-  }
+	public Long getNumeroTombamento() {
+		return numeroTombamento;
+	}
 
-  public void setCodigo(String codigo) {
-    this.codigo = codigo;
-  }
+	public void setNumeroTombamento(Long numeroTombamento) {
+		this.numeroTombamento = numeroTombamento;
+	}
 
-  public String getNome() {
-    return nome;
-  }
+	public String getNome() {
+		return nome;
+	}
 
-  public void setNome(String nome) {
-    this.nome = nome;
-  }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-  public StatusBemPatrimonialEnum getStatus() {
-    return status;
-  }
+	public String getDescricao() {
+		return descricao;
+	}
 
-  public void setStatus(StatusBemPatrimonialEnum status) {
-    this.status = status;
-  }
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
-  public TipoBaixaEnum getTipoBaixa() {
-    return tipoBaixa;
-  }
+	public Double getValor() {
+		return valor;
+	}
 
-  public void setTipoBaixa(TipoBaixaEnum tipoBaixa) {
-    this.tipoBaixa = tipoBaixa;
-  }
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
 
-  public GrupoBemPatrimonial getGrupo() {
-    return grupo;
-  }
+	public String getMarca() {
+		return marca;
+	}
 
-  public void setGrupo(GrupoBemPatrimonial grupo) {
-    this.grupo = grupo;
-  }
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public Date getDataAquisicao() {
+		return dataAquisicao;
+	}
+
+	public void setDataAquisicao(Date dataAquisicao) {
+		this.dataAquisicao = dataAquisicao;
+	}
+
+	public List<Movimentacao> getMovimentacoes() {
+		return movimentacoes;
+	}
+
+	public void setMovimentacoes(List<Movimentacao> movimentacoes) {
+		this.movimentacoes = movimentacoes;
+	}
+
+	public Sala getSala() {
+		return sala;
+	}
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
+
+	public TipoBaixaEnum getTipoBaixaEnum() {
+		return tipoBaixaEnum;
+	}
+
+	public void setTipoBaixaEnum(TipoBaixaEnum tipoBaixaEnum) {
+		this.tipoBaixaEnum = tipoBaixaEnum;
+	}
 }

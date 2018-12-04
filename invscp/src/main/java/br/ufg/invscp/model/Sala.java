@@ -1,8 +1,12 @@
 package br.ufg.invscp.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -15,11 +19,25 @@ public class Sala extends EntidadeAbstrata {
 	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "predio_id")
 	private Predio predio;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "id_departamento", referencedColumnName = "id")
+	private Departamento departamento;
+	
+	@OneToMany(mappedBy = "bemPatrimonial")
+	private List<BemPatrimonial> bensPatrimoniais;
+	
 	public Sala(String numero, int tipo, Predio predio) {
 		this.numero = numero;
 		this.tipo = tipo;
 		this.predio = predio;
+	}
+
+	public Sala(String numero, int tipo, Predio predio, Departamento departamento ) {
+		this.numero = numero;
+		this.tipo = tipo;
+		this.predio = predio;
+		this.departamento = departamento;
 	}
 
 	public String getNumero() {
@@ -45,4 +63,14 @@ public class Sala extends EntidadeAbstrata {
 	public void setPredio(Predio predio) {
 		this.predio = predio;
 	}
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+	
+	
 }
