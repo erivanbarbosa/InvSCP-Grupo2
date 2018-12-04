@@ -2,6 +2,7 @@ package br.ufg.invscp.model;
 
 import br.ufg.invscp.model.enumerator.StatusBemPatrimonialEnum;
 
+import br.ufg.invscp.model.enumerator.TipoBaixaEnum;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +23,9 @@ public class BemPatrimonial extends EntidadeAbstrata {
 
 	@Column
 	private StatusBemPatrimonialEnum status;
+
+	@Column
+	private TipoBaixaEnum tipoBaixaEnum;
 	
 	@ManyToOne
 	private GrupoBemPatrimonial grupo;
@@ -37,9 +41,6 @@ public class BemPatrimonial extends EntidadeAbstrata {
 	
 	@Column(name = "valor")
 	private Double valor;
-	
-	@Column(name = "taxa_depreciacao")
-	private Double taxaDepreciacao;
 	
 	@Column(name = "marca")
 	private String marca;
@@ -103,14 +104,6 @@ public class BemPatrimonial extends EntidadeAbstrata {
 		this.valor = valor;
 	}
 
-	public Double getTaxaDepreciacao() {
-		return taxaDepreciacao;
-	}
-
-	public void setTaxaDepreciacao(Double taxaDepreciacao) {
-		this.taxaDepreciacao = taxaDepreciacao;
-	}
-
 	public String getMarca() {
 		return marca;
 	}
@@ -143,4 +136,11 @@ public class BemPatrimonial extends EntidadeAbstrata {
 		this.sala = sala;
 	}
 
+	public TipoBaixaEnum getTipoBaixaEnum() {
+		return tipoBaixaEnum;
+	}
+
+	public void setTipoBaixaEnum(TipoBaixaEnum tipoBaixaEnum) {
+		this.tipoBaixaEnum = tipoBaixaEnum;
+	}
 }

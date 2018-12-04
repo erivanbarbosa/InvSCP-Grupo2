@@ -16,11 +16,15 @@
 		<!-- <li class="header">Menu Principal</li>  -->
 		
 		<li sec:authorize="hasAnyAuthority('ADMIN')"><a
-			href="/localizacao/"> <i class="fa fa-map-marker"></i> <span>Localizações</span>
+			href="/localizacao/"> <i class="fa fa-map-marker"></i> <span>LocalizaÃ§Ãµes</span>
 		</a></li>
 		
 		<li sec:authorize="hasAnyAuthority('ADMIN')"><a
-			href="/predio/"> <i class="fa fa-building"></i> <span>Predios</span>
+			href="/predio/"> <i class="fa fa-building"></i> <span>PrÃ©dios</span>
+		</a></li>
+
+		<li sec:authorize="hasAnyAuthority('ADMIN')"><a
+				href="/Bens Patrimoniais/"> <i class="fa fa-building"></i> <span>Bens Patrimoniais</span>
 		</a></li>
 
 <!--  

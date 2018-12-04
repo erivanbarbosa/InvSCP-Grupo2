@@ -5,21 +5,21 @@
 
 		<a class="btn btn-primary" href="/localizacao/new">Adicionar Nova Disciplina</a>
 
-		<table class="table table-striped" id="disciplines_list">
+		<table class="table table-striped" id="list_bens">
 			<thead>
 				<tr>
 					<th>Id</th>
+					<th>Código</th>
 					<th>Nome</th>
-					<th>Address</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr data-th-each="localizacao : ${localizacoes}">
-					<td data-th-text="${localizacao.id}"></td>
-					<td class="message" data-th-text="${localizacao.address}"></td>
-					<td class="message" data-th-text="${localizacao.name}"></td>
+				<tr data-th-each="bem : ${bens}">
+					<td data-th-text="${bem.id}"></td>
+					<td class="message" data-th-text="${bem.codigo}"></td>
+					<td class="message" data-th-text="${bem.nome}"></td>
 					<td>
-						<a class="btn btn-primary" th:href="@{/localizacao/edit/{id}(id=${localizacao.id})}">Editar Localizacao</a>
+						<a class="btn btn-primary" th:href="@{/bem/edit/{id}(id=${bem.id})}">Editar Bem Patrimonial</a>
 					</td>
 				</tr>
 			</tbody>
