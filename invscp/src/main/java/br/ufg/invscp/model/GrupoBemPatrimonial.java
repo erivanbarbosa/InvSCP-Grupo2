@@ -1,5 +1,6 @@
 package br.ufg.invscp.model;
 
+import br.ufg.invscp.model.enumerator.PeriodoDepreciacaoEnum;
 import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -15,5 +16,7 @@ public class GrupoBemPatrimonial extends EntidadeAbstrata {
   private String nome;
 
   private BigDecimal percentual;
+
+  private PeriodoDepreciacaoEnum periodoDepreciacao;
 
 }
