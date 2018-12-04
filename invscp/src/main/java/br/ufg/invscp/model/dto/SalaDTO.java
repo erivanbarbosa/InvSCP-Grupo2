@@ -4,6 +4,7 @@ public class SalaDTO {
 	private String numero;
 	private int tipo;
 	private Long predioId;
+	private Long departamentoId;
 
 	public String getNumero() {
 		return numero;
@@ -28,5 +29,15 @@ public class SalaDTO {
 	public void setPredioId(Long predioId) {
 		this.predioId = predioId;
 	}
+
+	public Long getDepartamentoId() {
+		return departamentoId;
+	}
+
+	public void setDepartamentoId(Long departamentoId) {
+		this.departamentoId = departamentoId;
+	}
+	
+	
 
 }
