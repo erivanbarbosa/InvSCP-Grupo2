@@ -1,6 +1,10 @@
 package br.ufg.invscp.model;
 
 import br.ufg.invscp.model.enumerator.StatusBemPatrimonialEnum;
+
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -19,6 +23,16 @@ public class BemPatrimonial extends EntidadeAbstrata {
 
   @ManyToOne
   private GrupoBemPatrimonial grupo;
+  
+  private Long numeroTombamento;
+  private String nome;
+  private String descricao;
+  private Double valor;
+  private Double taxaDepreciacao;
+  private String marca;
+  private Date dataAquisicao;
+  private List<Movimentacao> movimentacoes;
+  private Sala sala;
 
 
 }
