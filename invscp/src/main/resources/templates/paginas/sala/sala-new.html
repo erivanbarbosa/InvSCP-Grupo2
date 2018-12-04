@@ -24,27 +24,27 @@
 							<div class="form-group">
 								<label>Numero</label>
 								<span class="required">*</span>
-								<input type="text" class="form-control" th:field="*{sala.numero}" />
+								<input type="text" class="form-control" th:field="*{numero}" />
 							</div>
 						</div>
 
 						<!-- TIPO -->
 						<div class="col-sm-4 col-xs-12">
 							<div class="form-group">
-								<label>Sala</label>
+								<label>Tipo</label>
 								<span class="required">*</span>
-								<input type="number" class="form-control" th:field="*{sala.tipo}" />
+								<input type="number" class="form-control" th:field="*{tipo}" />
 							</div>
 						</div>
 
 						<!-- PREDIO -->
 						<div class="col-sm-4 col-xs-12">
 							<div class="form-group">
-								<label>Sala</label>
+								<label>Predio</label>
 								<span class="required">*</span>
-								<select class="form-control" th:field="${sala.predioId}">
+								<select class="form-control" th:field="*{predioId}">
 									<option value="0">Selecione</option>
-									<option th:each="predio : ${predios}" th:value="${predio.id}" th:text="${departamento.name}"></option>
+									<option th:each="predio : ${predios}" th:value="${predio.id}" th:text="${predio.nome}"></option>
 								</select>
 							</div>
 						</div>
@@ -52,9 +52,9 @@
 						<!-- DEPARTAMENTO -->
 						<div class="col-sm-4 col-xs-12">
 							<div class="form-group">
-								<label>Sala</label>
+								<label>Departamento</label>
 								<span class="required">*</span>
-								<select class="form-control" th:field="${sala.departamentoId}">
+								<select class="form-control" th:field="*{departamentoId}">
 									<option value="0">Selecione</option>
 									<option th:each="departamento : ${departamentos}" th:value="${departamento.id}" th:text="${departamento.name}"></option>
 								</select>

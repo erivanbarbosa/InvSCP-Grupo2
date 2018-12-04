@@ -25,10 +25,9 @@ public class PredioServiceImpl implements PredioService {
 	
 	public void save(PredioDTO dto) {
 		Localization localizacao = localizationService.findLocalization(dto.getLocalizacaoId());
-		
 		Predio predio = new Predio();
 		predio.setLocalizacao(localizacao);
-		
+		predio.setNome(dto.getNome());
 		predioRepository.save(predio);
 	}
 	
@@ -37,7 +36,7 @@ public class PredioServiceImpl implements PredioService {
 		Predio predio = predioRepository.findOne(id);
 		Localization localizacao = localizationService.findLocalization(predioUpdate.getLocalizacao().getId());
 		predio.setLocalizacao(localizacao);
-		
+		predio.setNome(predioUpdate.getNome());
 		predioRepository.save(predio);
 	}
 	

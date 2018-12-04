@@ -9,7 +9,7 @@
 
 			<!-- Title -->
 			<div class="x_title">
-				<h2>Novo Predio</h2>
+				<h2>Editar Departamento</h2>
 				<!--- clear -->
 				<div class="clearfix"></div>
 				<!--- / clear -->
@@ -17,24 +17,26 @@
 
 			<div class="x_content">
 				<div class="col-sm-12 col-xs-12">
-					<form method="post" th:action="@{/predio/update/} + ${predio.id}" role="form" th:object="${predio}">
+					<form method="post" th:action="@{/departamento/update/} + ${departamento.id}" role="form" th:object="${departamento}">
 
 						<!-- NOME-->
 						<div class="col-sm-4 col-xs-12">
 							<div class="form-group">
-								<label>Numero</label>
+								<label>Nome</label>
 								<span class="required">*</span>
 								<input type="text" class="form-control" th:field="*{nome}" />
 							</div>
 						</div>
 
+
+						<!-- CHEFE -->
 						<div class="col-sm-4 col-xs-12">
 							<div class="form-group">
-								<label>Localiza��o</label>
+								<label>Chefia</label>
 								<span class="required">*</span>
-								<select class="form-control" th:field="${predio.localizacao.id}">
+								<select class="form-control" th:field="*{chefeId}">
 									<option value="0">Selecione</option>
-									<option th:each="localizacao : ${localizacoes}" th:value="${localizacao.id}" th:text="${localizacao.name}"></option>
+									<option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.username}"></option>
 								</select>
 							</div>
 						</div>
@@ -43,11 +45,11 @@
 						<div class="col-xs-12">
 							<div class="ln_solid"></div>
 							<div class="pull-right" style="padding: 0;">
-								<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
-								<button type="submit" id="submit" class="btn btn-default">
-									<a href="/predio/">Cancelar</a>
-								</button>
-							</div>
+							<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+							<button type="submit" id="submit" class="btn btn-default">
+								<a href="/departamento/">Cancelar</a>
+							</button>
+						</div>
 						</div>
 					</form>
 				</div>

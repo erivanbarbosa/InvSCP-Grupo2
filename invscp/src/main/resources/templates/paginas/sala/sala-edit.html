@@ -9,7 +9,7 @@
 
 			<!-- Title -->
 			<div class="x_title">
-				<h2>Novo Predio</h2>
+				<h2>Editar Sala</h2>
 				<!--- clear -->
 				<div class="clearfix"></div>
 				<!--- / clear -->
@@ -17,16 +17,46 @@
 
 			<div class="x_content">
 				<div class="col-sm-12 col-xs-12">
-					<form method="post" th:action="@{/predio/update/} + ${predio.id}" role="form" th:object="${predio}">
+					<form method="post" th:action="@{/sala/update/} + ${sala.id}" role="form" th:object="${sala}">
 
-						<!-- Partner's Name -->
+						<!-- NUMERO-->
 						<div class="col-sm-4 col-xs-12">
 							<div class="form-group">
-								<label>Localização</label>
+								<label>Numero</label>
 								<span class="required">*</span>
-								<select class="form-control" th:field="${predio.localizacao.id}">
+								<input type="text" class="form-control" th:field="*{sala.numero}" />
+							</div>
+						</div>
+
+						<!-- TIPO -->
+						<div class="col-sm-4 col-xs-12">
+							<div class="form-group">
+								<label>Sala</label>
+								<span class="required">*</span>
+								<input type="number" class="form-control" th:field="*{sala.tipo}" />
+							</div>
+						</div>
+
+						<!-- PREDIO -->
+						<div class="col-sm-4 col-xs-12">
+							<div class="form-group">
+								<label>Sala</label>
+								<span class="required">*</span>
+								<select class="form-control" th:field="${sala.predioId}">
 									<option value="0">Selecione</option>
-									<option th:each="localizacao : ${localizacoes}" th:value="${localizacao.id}" th:text="${localizacao.name}"></option>
+									<option th:each="predio : ${predios}" th:value="${predio.id}" th:text="${departamento.name}"></option>
+								</select>
+							</div>
+						</div>
+
+						<!-- DEPARTAMENTO -->
+						<div class="col-sm-4 col-xs-12">
+							<div class="form-group">
+								<label>Sala</label>
+								<span class="required">*</span>
+								<select class="form-control" th:field="${sala.departamentoId}">
+									<option value="0">Selecione</option>
+									<option th:each="departamento : ${departamentos}" th:value="${departamento.id}" th:text="${departamento.name}"></option>
 								</select>
 							</div>
 						</div>
@@ -37,7 +67,7 @@
 							<div class="pull-right" style="padding: 0;">
 							<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
 							<button type="submit" id="submit" class="btn btn-default">
-								<a href="/predio/">Cancelar</a>
+								<a href="/sala/">Cancelar</a>
 							</button>
 						</div>
 						</div>
