@@ -12,7 +12,9 @@ import br.ufg.invscp.repository.PredioRepository;
 import br.ufg.invscp.repository.SalaRepository;
 import br.ufg.invscp.service.DepartamentoService;
 import br.ufg.invscp.service.SalaService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SalaServiceImpl implements SalaService{
 	@Autowired 
 	private PredioRepository predioRepository;

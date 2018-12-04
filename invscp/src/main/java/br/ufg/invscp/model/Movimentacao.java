@@ -16,13 +16,18 @@ public class Movimentacao extends EntidadeAbstrata{
 	private EnumSituacaoMovimentacao situacao;
 	private Date dataCancelamento;
 	private EnumMotivoBaixa motivoBaixa;
+
+	@ManyToOne
 	private Origem origem;
+
+	@ManyToOne
 	private Destino destino;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_movimentacao", referencedColumnName = "id")
 	private Localization localizacao;
-	
+
+	@ManyToOne
 	private BemPatrimonial bemPatrimonial;
 
 	public EnumSituacaoMovimentacao getSituacao() {

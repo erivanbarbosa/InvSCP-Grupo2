@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import br.ufg.invscp.model.Departamento;
 import br.ufg.invscp.repository.DepartamentoRepository;
 import br.ufg.invscp.service.DepartamentoService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DepartamentoServiceImpl implements DepartamentoService{
 	
 	@Autowired

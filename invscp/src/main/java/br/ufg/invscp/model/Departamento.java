@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -14,7 +15,7 @@ public class Departamento extends EntidadeAbstrata {
 	@Column(name = "nome")
 	private String nome;
 
-	@Column(name = "chefe")
+	@ManyToOne
 	private Usuario chefe;
 
 	@OneToMany(mappedBy = "departamento")
