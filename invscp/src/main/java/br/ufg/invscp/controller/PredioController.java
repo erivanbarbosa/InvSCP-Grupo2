@@ -59,4 +59,10 @@ public class PredioController {
 		model.addAttribute("predios", predios);
 		return new ModelAndView("paginas/predio/list");
 	}
+	
+	@RequestMapping("/delete/{id}")
+	public ModelAndView delete(@PathVariable Long id, Model model) {
+		predioService.delete(id);
+		return findAll(model);
+	}
 }

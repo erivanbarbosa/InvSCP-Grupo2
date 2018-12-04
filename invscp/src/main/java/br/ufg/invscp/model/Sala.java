@@ -28,6 +28,10 @@ public class Sala extends EntidadeAbstrata {
 	private List<BemPatrimonial> bensPatrimoniais;
 	
 	
+	public Sala() {
+		
+	}
+	
 	public Sala(String numero, int tipo, Predio predio) {
 		this.numero = numero;
 		this.tipo = tipo;

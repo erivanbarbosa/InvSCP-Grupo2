@@ -1,10 +1,19 @@
 package br.ufg.invscp.model.dto;
 
 public class SalaDTO {
+	private Long id;
 	private String numero;
 	private int tipo;
 	private Long predioId;
 	private Long departamentoId;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getNumero() {
 		return numero;
@@ -22,7 +31,7 @@ public class SalaDTO {
 		this.tipo = tipo;
 	}
 
-	public Long getPredioId() {	
+	public Long getPredioId() {
 		return predioId;
 	}
 
@@ -37,7 +46,5 @@ public class SalaDTO {
 	public void setDepartamentoId(Long departamentoId) {
 		this.departamentoId = departamentoId;
 	}
-	
-	
 
 }

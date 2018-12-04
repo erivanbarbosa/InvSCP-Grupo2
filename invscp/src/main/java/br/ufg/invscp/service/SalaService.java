@@ -16,5 +16,7 @@ public interface SalaService {
 	void delete(Long salaId);
 
 	void update(Long salaId, SalaDTO dto);
+
+	SalaDTO findDTO(Long id);
 	
 }
