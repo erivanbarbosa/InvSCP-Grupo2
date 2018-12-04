@@ -23,6 +23,9 @@ import javax.persistence.Transient;
 public class Usuario extends EntidadeAbstrata{
 
 
+  @Column
+  private String nome;
+
   @Column(name = "username")
   private String username;
 
@@ -125,4 +128,11 @@ public class Usuario extends EntidadeAbstrata{
     this.email = email;
   }
 
+  public String getNome() {
+    return nome;
+  }
+
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 }
