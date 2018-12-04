@@ -27,6 +27,10 @@
 				href="/Bens Patrimoniais/"> <i class="fa fa-building"></i> <span>Bens Patrimoniais</span>
 		</a></li>
 
+		<li sec:authorize="hasAnyAuthority('ADMIN')"><a
+			href="/sala/"> <i class="fa fa-home"></i> <span>Salas</span>
+	</a></li>
+
 <!--  
 		<li sec:authorize="hasAnyAuthority('ADMIN')"><a
 			href="/admin/users"> <i class="fa fa-users"></i> <span>Usuários</span>

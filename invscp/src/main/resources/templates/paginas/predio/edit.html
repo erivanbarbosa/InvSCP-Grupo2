@@ -19,10 +19,18 @@
 				<div class="col-sm-12 col-xs-12">
 					<form method="post" th:action="@{/predio/update/} + ${predio.id}" role="form" th:object="${predio}">
 
-						<!-- Partner's Name -->
+						<!-- NOME-->
 						<div class="col-sm-4 col-xs-12">
 							<div class="form-group">
-								<label>Localização</label>
+								<label>Numero</label>
+								<span class="required">*</span>
+								<input type="text" class="form-control" th:field="*{nome}" />
+							</div>
+						</div>
+
+						<div class="col-sm-4 col-xs-12">
+							<div class="form-group">
+								<label>Localizaï¿½ï¿½o</label>
 								<span class="required">*</span>
 								<select class="form-control" th:field="${predio.localizacao.id}">
 									<option value="0">Selecione</option>
@@ -35,11 +43,11 @@
 						<div class="col-xs-12">
 							<div class="ln_solid"></div>
 							<div class="pull-right" style="padding: 0;">
-							<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
-							<button type="submit" id="submit" class="btn btn-default">
-								<a href="/predio/">Cancelar</a>
-							</button>
-						</div>
+								<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+								<button type="submit" id="submit" class="btn btn-default">
+									<a href="/predio/">Cancelar</a>
+								</button>
+							</div>
 						</div>
 					</form>
 				</div>

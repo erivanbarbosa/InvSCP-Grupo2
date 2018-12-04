@@ -12,6 +12,8 @@ import javax.persistence.Table;
 @Table(name = "predio")
 public class Predio extends EntidadeAbstrata {
 
+	private String nome;
+	
 	@ManyToOne
 	@JoinColumn(name = "id_localizacao", referencedColumnName = "id")
 	private Localization localizacao;
@@ -26,6 +28,14 @@ public class Predio extends EntidadeAbstrata {
 
 	public Predio() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Localization getLocalizacao() {

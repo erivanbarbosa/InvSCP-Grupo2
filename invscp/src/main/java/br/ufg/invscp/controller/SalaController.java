@@ -47,7 +47,7 @@ public class SalaController {
 		model.addAttribute("sala", new SalaDTO());
 		model.addAttribute("predios", predioService.findAll());
 		model.addAttribute("departamentos", departamentoService.findAll());
-		return new ModelAndView("paginas/sala/new");
+		return new ModelAndView("paginas/sala/sala-new");
 	}
 	
 	@RequestMapping("/edit/{id}")
@@ -56,7 +56,7 @@ public class SalaController {
 		model.addAttribute("sala", sala);
 		model.addAttribute("predios", predioService.findAll());
 		model.addAttribute("departamentos", departamentoService.findAll());
-		return new ModelAndView("paginas/sala/edit");
+		return new ModelAndView("paginas/sala/sala-edit");
 	}
 	
 	@PostMapping("/update/{id}")
@@ -69,6 +69,6 @@ public class SalaController {
 	public ModelAndView findAll(Model model ) {
 		List<Sala> salas = salaService.findAll();
 		model.addAttribute("predios", salas);
-		return new ModelAndView("paginas/sala/list");
+		return new ModelAndView("paginas/sala/sala-list");
 	}
 }
