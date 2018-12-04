@@ -9,7 +9,7 @@
 
 			<!-- Title -->
 			<div class="x_title">
-				<h2>Novo Predio</h2>
+				<h2>Nova Sala</h2>
 				<!--- clear -->
 				<div class="clearfix"></div>
 				<!--- / clear -->
@@ -17,7 +17,7 @@
 
 			<div class="x_content">
 				<div class="col-sm-12 col-xs-12">
-					<form method="post" th:action="@{/predio/create}" role="form" th:object="${predio}">
+					<form method="post" th:action="@{/departamento/create}" role="form" th:object="${departamento}">
 
 						<!-- NOME-->
 						<div class="col-sm-4 col-xs-12">
@@ -28,24 +28,25 @@
 							</div>
 						</div>
 
+
+						<!-- CHEFE -->
 						<div class="col-sm-4 col-xs-12">
 							<div class="form-group">
-								<label>Localiza��o</label>
+								<label>Chefia</label>
 								<span class="required">*</span>
-								<select class="form-control" th:field="${predio.localizacaoId}">
+								<select class="form-control" th:field="*{chefeId}">
 									<option value="0">Selecione</option>
-									<option th:each="localizacao : ${localizacoes}" th:value="${localizacao.id}" th:text="${localizacao.name}"></option>
+									<option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.username}"></option>
 								</select>
 							</div>
 						</div>
-
 
 						<div class="col-xs-12">
 							<div class="ln_solid"></div>
 							<div class="pull-right" style="padding: 0;">
 							<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
 							<button type="submit" id="submit" class="btn btn-default">
-								<a href="/predio/">Cancelar</a>
+								<a href="/departamento/">Cancelar</a>
 							</button>
 						</div>
 						</div>

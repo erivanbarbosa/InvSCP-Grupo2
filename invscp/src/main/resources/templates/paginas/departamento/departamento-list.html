@@ -3,44 +3,43 @@
 <body>
 	<section layout:fragment="content">
 
-		<a class="btn btn-primary" href="/predio/new">Adicionar Novo predio</a>
+		<a class="btn btn-primary" href="/departamento/new">Adicionar Novo Departamento</a>
 
 		<table class="table table-striped" id="disciplines_list">
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>Nome</th>
-					<th>Localização</th>
+					<th>Chefia</th>
 					<th>Ações</th>
 				</tr>
 			</thead>
 			<tbody>
 
-				<tr data-th-each="predio : ${predios}">
-					<td style="width:10%" data-th-text="${predio.id}"></td>
-					<td style="width:40%" data-th-text="${predio.nome}"></td>
-					<td style="width:40%" class="message" data-th-text="${predio.localizacao.name}"></td>
+				<tr data-th-each="departamento : ${departamentos}">
+					<td style="width:10%" data-th-text="${departamento.id}"></td>
+					<td style="width:10%" data-th-text="${departamento.nome}"></td>
+					<td style="width:10%" data-th-text="${departamento.chefe.username}"></td>
 					<td style="width:10%">
-						<a class="btn btn-primary" th:href="@{/predio/edit/{id}(id=${predio.id})}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+						<a class="btn btn-primary" th:href="@{/departamento/edit/{id}(id=${departamento.id})}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash" aria-hidden="true"></i></button>				
 					</td>
 					
-	
-					
+
 						  <div class="modal fade" id="deleteModal" role="dialog">
 						    <div class="modal-dialog">
 						      <!-- Modal content-->
 						      <div class="modal-content">
 						        <div class="modal-header">
 						          <button type="button" class="close" data-dismiss="modal">&times;</button>
-						          <h4 class="modal-title">Confirmar Exclus�o</h4>
+						          <h4 class="modal-title">Confirmar Exclusao</h4>
 						        </div>
 						        <div class="modal-body">
 						          <p>Deseja realmente excluir este registro?</p>
 						          
 						        </div>
 						        <div class="modal-footer">
-						        <a class="btn btn-danger" th:href="@{/predio/delete/{id}(id=${predio.id})}"><i class="fa fa-pencil" aria-hidden="true"> Excluir</i></a>
+						        <a class="btn btn-danger" th:href="@{/departamento/delete/{id}(id=${departamento.id})}"><i class="fa fa-pencil" aria-hidden="true">Excluir</i></a>
 						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						        </div>
 						      </div>
