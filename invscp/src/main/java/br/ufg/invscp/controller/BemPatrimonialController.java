@@ -2,6 +2,7 @@ package br.ufg.invscp.controller;
 
 import br.ufg.invscp.model.BemPatrimonial;
 import br.ufg.invscp.model.Localization;
+import br.ufg.invscp.model.dto.BaixaBemPatrimonialDTO;
 import br.ufg.invscp.model.dto.BemPatrimonialDTO;
 import br.ufg.invscp.service.BemPatrimonialService;
 import java.util.List;
@@ -68,6 +69,22 @@ public class BemPatrimonialController {
     List<BemPatrimonial> bens = bemPatrimonialService.findAll();
     model.addAttribute("bens", bens);
     return new ModelAndView("paginas/bem/index");
+  }
+  
+  
+  @RequestMapping("/baixa/{id}")
+  public ModelAndView abrirBaixa(@PathVariable Long id, Model model) {
+    BemPatrimonial bemPatrimonial = bemPatrimonialService.find(id);
+    BaixaBemPatrimonialDTO baixa = new BaixaBemPatrimonialDTO();
+    baixa.setId(bemPatrimonial.getId());
+    model.addAttribute("bem", baixa);
+    return new ModelAndView("paginas/bem/baixa");
+  }
+
+  @PostMapping("/baixar/{id}")
+  public ModelAndView baixar(@PathVariable Long id, BaixaBemPatrimonialDTO dto, Model model) {
+    bemPatrimonialService.BaixarBemPatrimonial(id, dto);
+    return findAll(model);
   }
 
 }

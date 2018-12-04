@@ -1,5 +1,6 @@
 package br.ufg.invscp.model;
 
+import br.ufg.invscp.model.enuns.EnumMotivoBaixa;
 import br.ufg.invscp.model.enuns.StatusBemPatrimonialEnum;
 
 import br.ufg.invscp.model.enuns.TipoBaixaEnum;
@@ -25,7 +26,7 @@ public class BemPatrimonial extends EntidadeAbstrata {
   private StatusBemPatrimonialEnum status;
 
   @Column
-  private TipoBaixaEnum tipoBaixaEnum;
+  private EnumMotivoBaixa tipoBaixaEnum;
 
   @ManyToOne
   private GrupoBemPatrimonial grupo;
@@ -135,11 +136,11 @@ public class BemPatrimonial extends EntidadeAbstrata {
     this.sala = sala;
   }
 
-  public TipoBaixaEnum getTipoBaixaEnum() {
+  public EnumMotivoBaixa getTipoBaixaEnum() {
     return tipoBaixaEnum;
   }
 
-  public void setTipoBaixaEnum(TipoBaixaEnum tipoBaixaEnum) {
+  public void setTipoBaixaEnum(EnumMotivoBaixa tipoBaixaEnum) {
     this.tipoBaixaEnum = tipoBaixaEnum;
   }
 }

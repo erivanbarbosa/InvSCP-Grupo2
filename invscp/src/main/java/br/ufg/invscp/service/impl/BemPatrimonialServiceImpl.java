@@ -2,8 +2,13 @@ package br.ufg.invscp.service.impl;
 
 import static java.util.Optional.ofNullable;
 
+import java.util.Date;
+
 import br.ufg.invscp.model.BemPatrimonial;
+import br.ufg.invscp.model.dto.BaixaBemPatrimonialDTO;
 import br.ufg.invscp.model.dto.BemPatrimonialDTO;
+import br.ufg.invscp.model.enuns.EnumMotivoBaixa;
+import br.ufg.invscp.model.enuns.StatusBemPatrimonialEnum;
 import br.ufg.invscp.repository.BemPatrimonialRepository;
 import br.ufg.invscp.service.BemPatrimonialService;
 import java.util.List;
@@ -52,5 +57,13 @@ public class BemPatrimonialServiceImpl implements BemPatrimonialService {
   @Override
   public void delete(Long localizationId) {
     bemPatrimonialRepository.delete(localizationId);
+  }
+  
+  @Override
+  public void BaixarBemPatrimonial(Long id, BaixaBemPatrimonialDTO dto) {
+	BemPatrimonial bemPatrimonial = find(id);
+	bemPatrimonial.setStatus(StatusBemPatrimonialEnum.BAIXA);
+	bemPatrimonial.setTipoBaixaEnum(dto.getMotivo());
+	bemPatrimonialRepository.save(bemPatrimonial);	
   }
 }
