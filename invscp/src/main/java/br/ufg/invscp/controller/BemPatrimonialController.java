@@ -25,23 +25,28 @@ public class BemPatrimonialController {
   private BemPatrimonialService bemPatrimonialService;
 
   @PostMapping("/create")
-  public ModelAndView save(BemPatrimonialDTO location, Model model) {
-    bemPatrimonialService.save(location);
+  public ModelAndView save(BemPatrimonialDTO bem, Model model) {
+    bemPatrimonialService.save(bem);
     return findAll(model);
   }
 
   @RequestMapping("/new")
   public ModelAndView novoBemPatrimonial(Model model) {
-    model.addAttribute("bem", new Localization());
+    model.addAttribute("bem", new BemPatrimonialDTO());
     return new ModelAndView("paginas/bem/new");
   }
 
 
   @RequestMapping("/edit/{id}")
   public ModelAndView edit(@PathVariable Long id, Model model) {
-    BemPatrimonial bem = bemPatrimonialService.find(id);
-    System.out.println(bem);
+    BemPatrimonial bemPatrimonial = bemPatrimonialService.find(id);
+
+    BemPatrimonialDTO bem = new BemPatrimonialDTO();
+
+    bem.setAtributosBemPatrimonial(bemPatrimonial);
+
     model.addAttribute("bem", bem);
+
     return new ModelAndView("paginas/bem/edit");
   }
 
@@ -58,9 +63,8 @@ public class BemPatrimonialController {
   }
 
 
-
   @RequestMapping("/")
-  public ModelAndView findAll(Model model ) {
+  public ModelAndView findAll(Model model) {
     List<BemPatrimonial> bens = bemPatrimonialService.findAll();
     model.addAttribute("bens", bens);
     return new ModelAndView("paginas/bem/index");

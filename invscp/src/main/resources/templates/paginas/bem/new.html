@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html layout:decorator="default">
 <body>
-	<section layout:fragment="content">
+<section layout:fragment="content">
 
-		<form method="post" name="comment_form" id="comment_form"
-			th:action="@{/bem/create}" role="form" th:object="${bem}">
-			<div class="form-group">
+  <form method="post" name="comment_form" id="comment_form"
+        th:action="@{/bem/create}" role="form" th:object="${bem}">
+    <div class="form-group">
 
-				<label for="name">Código</label>
-				<input type="number" class="form-control" th:field="*{numeroTombamento}" />
+      <label>Código</label>
+      <input type="text" class="form-control" th:field="${bem.numeroTombamento}"/>
 
-				<label for="address">Nome</label>
-				<input type="text" class="form-control" th:field="*{nome}" />
+    </div>
 
-			</div>
-			<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
-		</form>
-	</section>
+
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text" class="form-control" th:field="${bem.nome}"/>
+    </div>
+
+    <div class="form-group">
+      <label>Descrição</label>
+      <input type="text" class="form-control" th:field="${bem.descricao}"/>
+    </div>
+
+
+    <div class="form-group">
+      <label>Valor</label>
+      <input type="number" class="form-control" th:field="${bem.valor}"/>
+    </div>
+
+
+    <div class="form-group">
+      <label>Marca</label>
+      <input type="text" class="form-control" th:field="${bem.marca}"/>
+    </div>
+
+
+    <div class="form-group">
+      <label>Data de Aquisição</label>
+      <input type="date" class="form-control" th:field="${bem.dataAquisicao}"/>
+    </div>
+
+    <button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+  </form>
+</section>
 </body>
 </html>

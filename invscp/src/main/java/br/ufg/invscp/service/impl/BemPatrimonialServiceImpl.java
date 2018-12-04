@@ -8,6 +8,7 @@ import br.ufg.invscp.repository.BemPatrimonialRepository;
 import br.ufg.invscp.service.BemPatrimonialService;
 import java.util.List;
 import javax.persistence.EntityNotFoundException;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,15 +19,22 @@ public class BemPatrimonialServiceImpl implements BemPatrimonialService {
   @Autowired
   private BemPatrimonialRepository bemPatrimonialRepository;
 
+
   @Override
   public void save(BemPatrimonialDTO dto) {
     BemPatrimonial bemPatrimonial = new BemPatrimonial();
+
+    BeanUtils.copyProperties(dto, bemPatrimonial);
+
     bemPatrimonialRepository.save(bemPatrimonial);
   }
 
   @Override
   public void update(Long id, BemPatrimonialDTO dto) {
     BemPatrimonial bemPatrimonial = find(id);
+
+    BeanUtils.copyProperties(dto, bemPatrimonial);
+
     bemPatrimonialRepository.save(bemPatrimonial);
   }
 
@@ -36,8 +44,8 @@ public class BemPatrimonialServiceImpl implements BemPatrimonialService {
   }
 
   @Override
-  public BemPatrimonial find(Long localizationId) {
-    return ofNullable(bemPatrimonialRepository.findOne(localizationId))
+  public BemPatrimonial find(Long bemId) {
+    return ofNullable(bemPatrimonialRepository.findOne(bemId))
         .orElseThrow(() -> new EntityNotFoundException("BemPatrimonialNotFound"));
   }
 

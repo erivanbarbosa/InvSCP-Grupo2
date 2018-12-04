@@ -18,12 +18,38 @@
 					<td data-th-text="${bem.id}"></td>
 					<td class="message" data-th-text="${bem.numeroTombamento}"></td>
 					<td class="message" data-th-text="${bem.nome}"></td>
-					<td>
-						<a class="btn btn-primary" th:href="@{/bem/edit/{id}(id=${bem.id})}">Editar Bem Patrimonial</a>
+					<td style="width:10%">
+						<a class="btn btn-primary" th:href="@{/bem/edit/{id}(id=${bem.id})}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+
+						<div class="modal fade" id="deleteModal" role="dialog">
+							<div class="modal-dialog">
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">Confirmar Exclus�o</h4>
+									</div>
+									<div class="modal-body">
+										<p>Deseja realmente excluir este registro?</p>
+
+									</div>
+									<div class="modal-footer">
+										<a class="btn btn-danger" th:href="@{/bem/delete/{id}(id=${bem.id})}"><i class="fa fa-pencil" aria-hidden="true"> Excluir</i></a>
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+
+
+
 	</section>
 </body>
 </html>
