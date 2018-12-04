@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html layout:decorator="default">
+
+<body>
+	<section layout:fragment="content">
+
+		<!--- col 12 -->
+		<div class="col-md-12 col-sm-12 col-xs-12 content">
+
+			<!-- Title -->
+			<div class="x_title">
+				<h2>Nova Sala</h2>
+				<!--- clear -->
+				<div class="clearfix"></div>
+				<!--- / clear -->
+			</div>
+
+			<div class="x_content">
+				<div class="col-sm-12 col-xs-12">
+					<form method="post" th:action="@{/sala/create}" role="form" th:object="${sala}">
+
+						<!-- NUMERO-->
+						<div class="col-sm-4 col-xs-12">
+							<div class="form-group">
+								<label>Numero</label>
+								<span class="required">*</span>
+								<input type="text" class="form-control" th:field="*{sala.numero}" />
+							</div>
+						</div>
+
+						<!-- TIPO -->
+						<div class="col-sm-4 col-xs-12">
+							<div class="form-group">
+								<label>Sala</label>
+								<span class="required">*</span>
+								<input type="number" class="form-control" th:field="*{sala.tipo}" />
+							</div>
+						</div>
+
+						<!-- PREDIO -->
+						<div class="col-sm-4 col-xs-12">
+							<div class="form-group">
+								<label>Sala</label>
+								<span class="required">*</span>
+								<select class="form-control" th:field="${sala.predioId}">
+									<option value="0">Selecione</option>
+									<option th:each="predio : ${predios}" th:value="${predio.id}" th:text="${departamento.name}"></option>
+								</select>
+							</div>
+						</div>
+
+						<!-- DEPARTAMENTO -->
+						<div class="col-sm-4 col-xs-12">
+							<div class="form-group">
+								<label>Sala</label>
+								<span class="required">*</span>
+								<select class="form-control" th:field="${sala.departamentoId}">
+									<option value="0">Selecione</option>
+									<option th:each="departamento : ${departamentos}" th:value="${departamento.id}" th:text="${departamento.name}"></option>
+								</select>
+							</div>
+						</div>
+
+
+						<div class="col-xs-12">
+							<div class="ln_solid"></div>
+							<div class="pull-right" style="padding: 0;">
+							<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+							<button type="submit" id="submit" class="btn btn-default">
+								<a href="/sala/">Cancelar</a>
+							</button>
+						</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
