@@ -21,6 +21,7 @@ import javax.persistence.Table;
 @Table(name = "bem_patrimonial")
 public class BemPatrimonial extends EntidadeAbstrata {
 
+<<<<<<< Updated upstream
   @Column
   private StatusBemPatrimonialEnum status;
 
@@ -143,4 +144,127 @@ public class BemPatrimonial extends EntidadeAbstrata {
   public void setTipoBaixaEnum(TipoBaixaEnum tipoBaixaEnum) {
     this.tipoBaixaEnum = tipoBaixaEnum;
   }
+=======
+	@Column
+	private StatusBemPatrimonialEnum status;
+
+	@Column
+	private TipoBaixaEnum tipoBaixaEnum;
+	
+	@ManyToOne
+	private GrupoBemPatrimonial grupo;
+
+	@Column(name = "numero_tombamento")
+	private Long numeroTombamento;
+	
+	@Column(name = "nome")
+	private String nome;
+	
+	@Column(name = "descricao")
+	private String descricao;
+	
+	@Column(name = "valor")
+	private Double valor;
+	
+	@Column(name = "marca")
+	private String marca;
+	
+	@Column(name = "data_aquisicao")
+	private Date dataAquisicao;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_sala", referencedColumnName = "id")
+	private Sala sala;
+	
+	@OneToMany(mappedBy="bemPatrimonial")
+	private List<Movimentacao> movimentacoes;
+	
+	public StatusBemPatrimonialEnum getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusBemPatrimonialEnum status) {
+		this.status = status;
+	}
+
+	public GrupoBemPatrimonial getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(GrupoBemPatrimonial grupo) {
+		this.grupo = grupo;
+	}
+
+	public Long getNumeroTombamento() {
+		return numeroTombamento;
+	}
+
+	public void setNumeroTombamento(Long numeroTombamento) {
+		this.numeroTombamento = numeroTombamento;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public Date getDataAquisicao() {
+		return dataAquisicao;
+	}
+
+	public void setDataAquisicao(Date dataAquisicao) {
+		this.dataAquisicao = dataAquisicao;
+	}
+
+	public List<Movimentacao> getMovimentacoes() {
+		return movimentacoes;
+	}
+
+	public void setMovimentacoes(List<Movimentacao> movimentacoes) {
+		this.movimentacoes = movimentacoes;
+	}
+
+	public Sala getSala() {
+		return sala;
+	}
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
+
+	public TipoBaixaEnum getTipoBaixaEnum() {
+		return tipoBaixaEnum;
+	}
+
+	public void setTipoBaixaEnum(TipoBaixaEnum tipoBaixaEnum) {
+		this.tipoBaixaEnum = tipoBaixaEnum;
+	}
+>>>>>>> Stashed changes
 }
